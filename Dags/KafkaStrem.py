@@ -24,7 +24,6 @@ def get_data():
 def format_data(res):
     data = {}
     location = res['location']
-    # i changed the id column
     data['id'] = str(uuid.uuid4())
     data['first_name'] = res['name']['first']
     data['last_name'] = res['name']['last']
@@ -76,4 +75,3 @@ with DAG('user_automation',
         python_callable=stream_data
     )
 
-# stream_data()
