@@ -1,0 +1,21 @@
+# Use your specific Bitnami Spark version (e.g., 3.4.1) instead of :latest for stability
+FROM bitnami/spark:3.4.1
+
+# Switch to root user to install system packages and pip packages
+USER root
+
+# Install python3-pip and other necessary build dependencies if any (e.g., for some C extensions)
+RUN apt-get update && apt-get install -y \
+    python3-pip \
+    # Add any other system dependencies if your Python packages require them (e.g., build-essential, libssl-dev etc.)
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python packages
+# Ensure pyspark version matches your Spark version
+RUN pip install --no-cache-dir \
+    pyspark==3.4.1 \
+    kafka-python \
+    cassandra-driver
+
+# Switch back to the non-root user that Bitnami images use (usually 1001)
+USER 1001
