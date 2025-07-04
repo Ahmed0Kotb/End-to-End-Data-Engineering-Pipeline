@@ -175,12 +175,10 @@ services:
       - confluent
 
   spark-worker:
-    # Use 'build: .' to tell Docker Compose to build the Dockerfile.sparkWorker in the current directory
-    # Alternatively, specify a path to the Dockerfile.sparkWorker: build: ./path/to/your/worker/Dockerfile.sparkWorker
     build:
       context: . # This specifies the build context (the directory where Docker will look for files)
       dockerfile: Dockerfile.sparkWorker # This specifies the name of your Dockerfile
-    image: custom-spark-worker:latest # Give your custom image a name
+    image: custom-spark-worker:latest
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
@@ -193,20 +191,6 @@ services:
       - confluent
 
 
-
-
-#  spark-worker:
-#    image: bitnami/spark:latest
-#    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-#    depends_on:
-#      - spark-master
-#    environment:
-#      SPARK_MODE: worker
-#      SPARK_WORKER_CORES: 2
-#      SPARK_WORKER_MEMORY: 1g
-#      SPARK_MASTER_URL: spark://spark-master:7077
-#    networks:
-#      - confluent
 
   cassandra_db:
     image: cassandra:latest
