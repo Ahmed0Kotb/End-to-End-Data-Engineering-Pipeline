@@ -4,4 +4,4 @@ An end-to-end data engineering pipeline that orchestrates data ingestion, proces
 ## 🏗️ System Architecture
 
 The system architecture for this project :
-![System Architecture](./system_architecture.jpg)
+![System Architecture](system_architecture.jpeg)
