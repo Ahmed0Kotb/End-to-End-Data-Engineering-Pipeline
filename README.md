@@ -19,12 +19,12 @@ Cassandra: Where the processed data will be stored.
 
 ## 🧰 Technologies
 
-    Apache Airflow
-    Python
-    Apache Kafka
-    Apache Zookeeper
-    Apache Spark
-    Cassandra
-    PostgreSQL
-    Docker
+- Apache Airflow
+- Python
+- Apache Kafka
+- Apache Zookeeper
+- Apache Spark
+- Cassandra
+- PostgreSQL
+- Docker
 
